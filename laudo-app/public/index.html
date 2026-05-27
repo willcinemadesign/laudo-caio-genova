@@ -36,21 +36,21 @@ body {
 /* ── HEADER ── */
 .hdr {
   background: var(--black);
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 72px;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 .hdr-left { display: flex; align-items: center; gap: 12px; }
-.hdr-logo-img { width: 36px; height: 36px; object-fit: contain; }
+.hdr-logo-img { width: 52px; height: 52px; object-fit: contain; filter: invert(1); }
 .hdr-text { }
-.hdr-name { font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 2.5px; color: #fff; line-height: 1; }
-.hdr-sub { font-family: 'DM Sans', sans-serif; font-size: 9px; color: #555; letter-spacing: 1.5px; font-weight: 300; text-transform: uppercase; }
+.hdr-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2.5px; color: #fff; line-height: 1; }
+.hdr-sub { font-family: 'DM Sans', sans-serif; font-size: 11px; color: #666; letter-spacing: 1.5px; font-weight: 300; text-transform: uppercase; }
 .hdr-tag { font-family: 'DM Mono', monospace; font-size: 9px; color: #444; letter-spacing: 1px; text-transform: uppercase; }
 
 /* ── STEPS ── */
@@ -327,7 +327,7 @@ body {
 <div class="page" id="p1">
   <div class="card">
     <div class="sec-title">FOTODOCUMENTAÇÃO</div>
-    <div class="sec-sub" style="margin-bottom:20px;">Arraste ou selecione todas as fotos clínicas. Classifique cada uma pelo seletor.</div>
+    <div class="sec-sub" style="margin-bottom:20px;">Arraste ou selecione todas as fotos clínicas. A IA identifica e descreve cada uma automaticamente.</div>
     <div class="drop-zone" id="dz1"
       ondragover="event.preventDefault();this.classList.add('over')"
       ondragleave="this.classList.remove('over')"
@@ -519,7 +519,7 @@ function renderGrid(type) {
       <button class="rm-btn" onclick="rm('${type}',${item.id})">✕</button>
       <div class="lbl-bar">
         ${type === 'foto'
-          ? `<select onchange="setLbl(${item.id},this.value)">${LABELS.map(l => `<option value="${l}" ${l === item.label ? 'selected' : ''}>${l}</option>`).join('')}</select>`
+          ? `<span class="num-lbl">FOTO ${idx + 1}</span>`
           : `<span class="num-lbl">RX ${idx + 1}</span>`
         }
       </div>`;
