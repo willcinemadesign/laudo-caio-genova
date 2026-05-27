@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0054)file:///C:/Users/User/Downloads/index-corrigido_1.html -->
-<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Laudo Pós-Cirúrgico · Caio Genova</title>
-<link rel="icon" type="image/png" href="file:///C:/assets/logo-branca.png">
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index_files/css2" rel="stylesheet">
+<link rel="icon" type="image/png" href="/assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -279,7 +279,7 @@ body {
 <!-- HEADER -->
 <div class="hdr">
   <div class="hdr-left">
-    <img src="file:///C:/assets/logo-branca.png" class="hdr-logo-img" alt="Logo">
+    <img src="/assets/logo-branca.png" class="hdr-logo-img" alt="Logo">
     <div class="hdr-text">
       <div class="hdr-name">CAIO GENOVA</div>
       <div class="hdr-sub">Dentista Veterinário</div>
@@ -328,13 +328,16 @@ body {
   <div class="card">
     <div class="sec-title">FOTODOCUMENTAÇÃO</div>
     <div class="sec-sub" style="margin-bottom:20px;">Arraste ou selecione todas as fotos clínicas. Classifique cada uma pelo seletor.</div>
-    <div class="drop-zone" id="dz1" ondragover="event.preventDefault();this.classList.add(&#39;over&#39;)" ondragleave="this.classList.remove(&#39;over&#39;)" ondrop="dzDrop(event,&#39;foto&#39;)">
-      <input type="file" accept="image/*" multiple="" onchange="addImgs(this.files,&#39;foto&#39;)">
+    <div class="drop-zone" id="dz1"
+      ondragover="event.preventDefault();this.classList.add('over')"
+      ondragleave="this.classList.remove('over')"
+      ondrop="dzDrop(event,'foto')">
+      <input type="file" accept="image/*" multiple onchange="addImgs(this.files,'foto')">
       <div class="drop-icon">📂</div>
       <div class="drop-hint"><b>Clique ou arraste as fotos aqui</b><br>Selecione quantas quiser de uma vez</div>
     </div>
     <div class="thumb-grid" id="tg-foto"></div>
-    <button class="ai-btn" id="btn-fa" onclick="runAI(&#39;foto&#39;)">
+    <button class="ai-btn" id="btn-fa" onclick="runAI('foto')">
       <span id="sp-fa" class="spin hidden"></span>
       <span id="ic-fa">✦</span> ANALISAR FOTOS COM IA
     </button>
@@ -345,7 +348,7 @@ body {
         <textarea id="tx-foto" rows="10"></textarea>
       </div>
       <div class="voice-row">
-        <button class="voice-btn" id="vbtn-foto" onclick="startVoice(&#39;tx-foto&#39;,&#39;vbtn-foto&#39;,&#39;vst-foto&#39;)">🎙 Editar por voz</button>
+        <button class="voice-btn" id="vbtn-foto" onclick="startVoice('tx-foto','vbtn-foto','vst-foto')">🎙 Editar por voz</button>
         <span class="voice-status" id="vst-foto"></span>
       </div>
     </div>
@@ -361,13 +364,16 @@ body {
   <div class="card">
     <div class="sec-title">RAIOS-X INTRAORAIS</div>
     <div class="sec-sub" style="margin-bottom:20px;">Arraste ou selecione todas as radiografias de uma vez.</div>
-    <div class="drop-zone" id="dz2" ondragover="event.preventDefault();this.classList.add(&#39;over&#39;)" ondragleave="this.classList.remove(&#39;over&#39;)" ondrop="dzDrop(event,&#39;rx&#39;)">
-      <input type="file" accept="image/*" multiple="" onchange="addImgs(this.files,&#39;rx&#39;)">
+    <div class="drop-zone" id="dz2"
+      ondragover="event.preventDefault();this.classList.add('over')"
+      ondragleave="this.classList.remove('over')"
+      ondrop="dzDrop(event,'rx')">
+      <input type="file" accept="image/*" multiple onchange="addImgs(this.files,'rx')">
       <div class="drop-icon">🩻</div>
       <div class="drop-hint"><b>Clique ou arraste as radiografias aqui</b><br>Selecione quantas quiser de uma vez</div>
     </div>
     <div class="thumb-grid" id="tg-rx"></div>
-    <button class="ai-btn" id="btn-ra" onclick="runAI(&#39;rx&#39;)">
+    <button class="ai-btn" id="btn-ra" onclick="runAI('rx')">
       <span id="sp-ra" class="spin hidden"></span>
       <span id="ic-ra">✦</span> ANALISAR RAIOS-X COM IA
     </button>
@@ -378,7 +384,7 @@ body {
         <textarea id="tx-rx" rows="12"></textarea>
       </div>
       <div class="voice-row">
-        <button class="voice-btn" id="vbtn-rx" onclick="startVoice(&#39;tx-rx&#39;,&#39;vbtn-rx&#39;,&#39;vst-rx&#39;)">🎙 Editar por voz</button>
+        <button class="voice-btn" id="vbtn-rx" onclick="startVoice('tx-rx','vbtn-rx','vst-rx')">🎙 Editar por voz</button>
         <span class="voice-status" id="vst-rx"></span>
       </div>
     </div>
@@ -392,8 +398,8 @@ body {
 <!-- ── PAGE 3: CONCLUSÃO ── -->
 <div class="page" id="p3">
   <div class="card" style="margin-bottom:16px;">
-    <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Conclusão Radiográfica</div>
-    <button class="ai-btn" id="btn-cr" onclick="runAI(&#39;radio&#39;)">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Conclusão Radiográfica</div>
+    <button class="ai-btn" id="btn-cr" onclick="runAI('radio')">
       <span id="sp-cr" class="spin hidden"></span>
       <span id="ic-cr">✦</span> GERAR CONCLUSÃO RADIOGRÁFICA
     </button>
@@ -404,15 +410,15 @@ body {
         <textarea id="tx-radio" rows="10"></textarea>
       </div>
       <div class="voice-row">
-        <button class="voice-btn" id="vbtn-radio" onclick="startVoice(&#39;tx-radio&#39;,&#39;vbtn-radio&#39;,&#39;vst-radio&#39;)">🎙 Editar por voz</button>
+        <button class="voice-btn" id="vbtn-radio" onclick="startVoice('tx-radio','vbtn-radio','vst-radio')">🎙 Editar por voz</button>
         <span class="voice-status" id="vst-radio"></span>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Conclusão Geral do Laudo</div>
-    <button class="ai-btn" id="btn-cg" onclick="runAI(&#39;geral&#39;)">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Conclusão Geral do Laudo</div>
+    <button class="ai-btn" id="btn-cg" onclick="runAI('geral')">
       <span id="sp-cg" class="spin hidden"></span>
       <span id="ic-cg">✦</span> GERAR CONCLUSÃO GERAL
     </button>
@@ -423,7 +429,7 @@ body {
         <textarea id="tx-geral" rows="14"></textarea>
       </div>
       <div class="voice-row">
-        <button class="voice-btn" id="vbtn-geral" onclick="startVoice(&#39;tx-geral&#39;,&#39;vbtn-geral&#39;,&#39;vst-geral&#39;)">🎙 Editar por voz</button>
+        <button class="voice-btn" id="vbtn-geral" onclick="startVoice('tx-geral','vbtn-geral','vst-geral')">🎙 Editar por voz</button>
         <span class="voice-status" id="vst-geral"></span>
       </div>
     </div>
@@ -996,6 +1002,5 @@ ul li { font-size: 13px; line-height: 1.85; margin-bottom: 4px; }
 // ── INIT ───────────────────────────────────────────
 document.getElementById('data').valueAsDate = new Date();
 </script>
-
-
-</body></html>
+</body>
+</html>
