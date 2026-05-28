@@ -1,150 +1,163 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0044)file:///C:/Users/User/Downloads/index_1.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Laudo Pós-Cirúrgico · Caio Genova</title>
-<link rel="icon" type="image/png" href="/assets/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="file:///C:/assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./index_files/css2" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #e8e6e0;
-  --white: #ffffff;
-  --black: #0a0a0a;
-  --gray: #9a9690;
-  --border: #d4d1ca;
-  --green: #2a6049;
+  --bg: #e8e6e0; --white: #fff; --black: #0a0a0a;
+  --gray: #9a9690; --border: #d4d1ca; --green: #2a6049;
   --shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  background-image: url('/assets/fundo.png');
-  background-size: cover;
-  background-attachment: fixed;
-  color: var(--black);
-  min-height: 100vh;
-}
-.hdr {
-  background: var(--black); padding: 0 24px;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 72px; position: sticky; top: 0; z-index: 100;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-}
-.hdr-left { display: flex; align-items: center; gap: 14px; }
-.hdr-logo-img { width: 52px; height: 52px; object-fit: contain; filter: invert(1); }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); background-image: url('/assets/fundo.png'); background-size: cover; background-attachment: fixed; color: var(--black); min-height: 100vh; }
+
+/* HEADER */
+.hdr { background: var(--black); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
 .hdr-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2.5px; color: #fff; line-height: 1; }
 .hdr-sub { font-size: 11px; color: #666; letter-spacing: 1.5px; font-weight: 300; text-transform: uppercase; }
 .hdr-tag { font-family: 'DM Mono', monospace; font-size: 10px; color: #444; letter-spacing: 1px; }
+
+/* STEPS */
 .steps { background: #111; display: flex; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #1a1a1a; }
 .steps::-webkit-scrollbar { display: none; }
-.step-btn {
-  background: none; border: none; color: #3a3a3a;
-  font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px;
-  padding: 12px 18px; cursor: pointer; white-space: nowrap;
-  border-bottom: 2px solid transparent; transition: all 0.2s; flex-shrink: 0;
-}
+.step-btn { background: none; border: none; color: #3a3a3a; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; padding: 12px 18px; cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; flex-shrink: 0; }
 .step-btn.active { color: #fff; border-bottom-color: #fff; }
 .step-btn.done { color: #555; }
-.main { max-width: 700px; margin: 0 auto; padding: 28px 16px 100px; }
+
+/* LAYOUT */
+.main { max-width: 720px; margin: 0 auto; padding: 28px 16px 100px; }
 .page { display: none; animation: fadeIn 0.25s ease; }
 .page.show { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; } }
 .card { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow); }
 .sec-title { font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 2px; margin-bottom: 3px; }
-.sec-sub { color: var(--gray); font-size: 12px; margin-bottom: 20px; font-weight: 300; }
+.sec-sub { color: var(--gray); font-size: 12px; margin-bottom: 20px; font-weight: 300; line-height: 1.5; }
+
+/* FIELDS */
 .field { margin-bottom: 14px; }
 .field label { display: block; font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 4px; font-family: 'DM Mono', monospace; }
 .field input, .field select { width: 100%; padding: 10px 12px; border: 1.5px solid var(--border); border-radius: 7px; font-family: 'DM Sans', sans-serif; font-size: 14px; background: #fff; color: var(--black); outline: none; transition: border 0.2s; }
 .field input:focus, .field select:focus { border-color: var(--black); }
 .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-.drop-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 28px 16px; text-align: center; background: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.2s; position: relative; margin-bottom: 16px; }
+
+/* DROP ZONE */
+.drop-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 24px 16px; text-align: center; background: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.2s; position: relative; margin-bottom: 16px; }
 .drop-zone.over { border-color: var(--black); background: rgba(255,255,255,0.9); }
 .drop-zone input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-.drop-icon { font-size: 30px; margin-bottom: 8px; }
+.drop-icon { font-size: 28px; margin-bottom: 8px; }
 .drop-hint { font-size: 12px; color: var(--gray); line-height: 1.6; }
 .drop-hint b { color: var(--black); }
-.thumb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-bottom: 16px; }
-.thumb { position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 1; border: 1.5px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+/* PHOTO ITEMS - main flow */
+.photo-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+.photo-item { display: flex; gap: 12px; align-items: flex-start; background: #fff; border: 1.5px solid var(--border); border-radius: 10px; padding: 12px; }
+.photo-item-img { width: 100px; height: 75px; object-fit: cover; border-radius: 7px; flex-shrink: 0; border: 1px solid var(--border); }
+.photo-item-right { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.photo-item-num { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--gray); letter-spacing: 1.5px; text-transform: uppercase; }
+.photo-item-ta { width: 100%; border: 1.5px solid var(--border); border-radius: 6px; padding: 8px 10px; font-family: 'DM Sans', sans-serif; font-size: 12px; line-height: 1.65; resize: vertical; min-height: 70px; outline: none; background: #fafaf8; }
+.photo-item-ta:focus { border-color: var(--black); background: #fff; }
+.photo-item-actions { display: flex; align-items: center; gap: 8px; }
+.voice-mini { display: flex; align-items: center; gap: 5px; padding: 6px 12px; background: #f0f0f0; border: 1.5px solid var(--border); border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 11px; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.voice-mini:hover { background: var(--black); color: #fff; border-color: var(--black); }
+.voice-mini.recording { background: #b5192c; color: #fff; border-color: #b5192c; animation: pulse 1s infinite; }
+.voice-mini-st { font-size: 10px; color: var(--gray); font-style: italic; }
+@keyframes pulse { 0%,100%{opacity:1;}50%{opacity:.7;} }
+
+/* THUMB GRID (before analysis) */
+.thumb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; margin-bottom: 12px; }
+.thumb { position: relative; border-radius: 7px; overflow: hidden; aspect-ratio: 1; border: 1.5px solid var(--border); }
 .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.thumb .rm-btn { position: absolute; top: 4px; right: 4px; background: rgba(0,0,0,0.75); color: #fff; border: none; border-radius: 50%; width: 22px; height: 22px; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.thumb .rm-btn { position: absolute; top: 3px; right: 3px; background: rgba(0,0,0,.75); color: #fff; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+/* BUTTONS */
 .btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 20px; border-radius: 7px; border: none; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
 .btn-black { background: var(--black); color: #fff; }
 .btn-black:hover { background: #2a2a2a; }
 .btn-out { background: transparent; color: var(--black); border: 1.5px solid var(--black); }
 .btn-out:hover { background: var(--black); color: #fff; }
-.ai-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; background: var(--black); color: #fff; border: none; border-radius: 9px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; transition: all 0.2s; margin-top: 4px; }
+.ai-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 13px; background: var(--black); color: #fff; border: none; border-radius: 9px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; transition: all 0.2s; margin-top: 4px; }
 .ai-btn:hover { background: #1a1a1a; }
-.ai-btn:disabled { opacity: 0.45; cursor: not-allowed; }
-.spin { width: 16px; height: 16px; border: 2px solid #444; border-top-color: #fff; border-radius: 50%; animation: rot 0.7s linear infinite; flex-shrink: 0; }
+.ai-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* SPINNER */
+.spin { width: 16px; height: 16px; border: 2px solid #444; border-top-color: #fff; border-radius: 50%; animation: rot .7s linear infinite; flex-shrink: 0; }
+.spin2 { width: 14px; height: 14px; border: 2px solid var(--border); border-top-color: var(--black); border-radius: 50%; animation: rot .7s linear infinite; flex-shrink: 0; }
 @keyframes rot { to { transform: rotate(360deg); } }
-.gen-box { background: #fff; border: 1.5px solid #b8dfc8; border-radius: 9px; padding: 16px; margin-top: 14px; }
-.gen-label { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); font-family: 'DM Mono', monospace; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-.gen-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
-.gen-box textarea { width: 100%; border: none; outline: none; resize: vertical; font-family: 'DM Sans', sans-serif; font-size: 13px; line-height: 1.8; color: var(--black); background: transparent; min-height: 100px; }
-.voice-row { display: flex; gap: 8px; margin-top: 10px; align-items: center; }
-.voice-btn { display: flex; align-items: center; gap: 6px; padding: 8px 14px; background: #f0f0f0; border: 1.5px solid var(--border); border-radius: 7px; font-family: 'DM Sans', sans-serif; font-size: 12px; cursor: pointer; transition: all 0.2s; white-space: nowrap; flex-shrink: 0; }
-.voice-btn:hover { background: var(--black); color: #fff; border-color: var(--black); }
-.voice-btn.recording { background: #b5192c; color: #fff; border-color: #b5192c; animation: pulse 1s infinite; }
-@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.7; } }
-.voice-status { font-size: 11px; color: var(--gray); font-style: italic; }
-.sec-hdr { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; background: var(--black); color: #fff; padding: 8px 16px; border-radius: 8px 8px 0 0; }
-.sec-body { background: rgba(255,255,255,0.95); border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 18px; margin-bottom: 20px; }
-.rv-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-.rv-item:last-child { border: none; margin: 0; padding: 0; }
-.rv-img { width: 120px; height: 90px; object-fit: cover; border-radius: 6px; flex-shrink: 0; border: 1.5px solid var(--border); }
-.rv-info { flex: 1; min-width: 0; }
-.rv-tag { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
-.rv-ta { width: 100%; border: 1.5px solid var(--border); border-radius: 6px; padding: 8px 10px; font-family: 'DM Sans', sans-serif; font-size: 12px; line-height: 1.65; resize: vertical; min-height: 70px; outline: none; background: #fafaf8; }
-.rv-ta:focus { border-color: var(--black); background: #fff; }
-.rv-big { width: 100%; border: 1.5px solid var(--border); border-radius: 7px; padding: 12px 14px; font-family: 'DM Sans', sans-serif; font-size: 13px; line-height: 1.8; resize: vertical; min-height: 110px; outline: none; background: #fafaf8; }
-.rv-big:focus { border-color: var(--black); background: #fff; }
-.meta-card { background: rgba(255,255,255,0.95); border: 1.5px solid var(--border); border-radius: 9px; padding: 16px; margin-bottom: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.mc-item strong { display: block; font-size: 9px; font-family: 'DM Mono', monospace; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
-.mc-item span { font-size: 13px; font-weight: 500; }
-.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,0.08); }
 .ai-status { display: flex; align-items: center; gap: 8px; padding: 10px 0; color: var(--gray); font-size: 12px; font-style: italic; }
-.ai-status .sp2 { width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--black); border-radius: 50%; animation: rot 0.8s linear infinite; }
-.hidden { display: none !important; }
-.btn-row { display: flex; gap: 10px; margin-top: 20px; }
-.btn-wpp { background: #25D366; color: #fff; border: none; border-radius: 7px; padding: 12px 20px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center; }
-.btn-wpp:hover { background: #1ebe5d; }
-.btn-pdf { background: var(--black); color: #fff; border: none; border-radius: 7px; padding: 12px 20px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; flex: 1; justify-content: center; }
+
+/* CONCLUSAO BOXES */
+.conc-box { background: #fff; border: 1.5px solid var(--border); border-radius: 9px; padding: 16px; margin-top: 14px; }
+.conc-label { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); font-family: 'DM Mono', monospace; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.conc-label::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--green); display:inline-block; }
+.conc-box textarea { width: 100%; border: none; outline: none; resize: vertical; font-family: 'DM Sans', sans-serif; font-size: 13px; line-height: 1.8; color: var(--black); background: transparent; min-height: 100px; }
+
+/* REVISÃO */
+.rv-section { margin-bottom: 20px; }
+.rv-hdr { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; background: var(--black); color: #fff; padding: 8px 16px; border-radius: 8px 8px 0 0; }
+.rv-body { background: rgba(255,255,255,0.95); border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 16px; }
+.rv-photo-row { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.rv-photo-row:last-child { border: none; padding-bottom: 0; }
+.rv-photo-img { width: 90px; height: 68px; object-fit: cover; border-radius: 6px; flex-shrink: 0; border: 1px solid var(--border); }
+.rv-photo-info { flex: 1; }
+.rv-photo-num { font-size: 9px; font-family: 'DM Mono', monospace; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.rv-photo-desc { font-size: 12px; line-height: 1.65; color: var(--black); }
+.rv-text-block { font-size: 13px; line-height: 1.8; white-space: pre-wrap; color: var(--black); }
+.meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: rgba(255,255,255,0.95); border: 1.5px solid var(--border); border-radius: 9px; padding: 16px; margin-bottom: 20px; }
+.meta-item strong { display: block; font-size: 9px; font-family: 'DM Mono', monospace; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+.meta-item span { font-size: 13px; font-weight: 500; }
+
+/* FINALIZAR */
+.finalizar-screen { text-align: center; padding: 40px 20px; }
+.finalizar-icon { font-size: 64px; margin-bottom: 16px; }
+.finalizar-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: 3px; margin-bottom: 8px; }
+.finalizar-sub { color: var(--gray); font-size: 14px; margin-bottom: 36px; }
+.btn-pdf { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; background: var(--black); color: #fff; border: none; border-radius: 9px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; transition: all 0.2s; margin-bottom: 12px; }
 .btn-pdf:hover { background: #2a2a2a; }
+.btn-wpp { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; background: #25D366; color: #fff; border: none; border-radius: 9px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; transition: all 0.2s; margin-bottom: 12px; }
+.btn-wpp:hover { background: #1ebe5d; }
+
+.nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(0,0,0,0.08); }
+.hidden { display: none !important; }
+
 @media (max-width: 520px) {
   .g2, .g3 { grid-template-columns: 1fr; }
-  .thumb-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-  .meta-card { grid-template-columns: 1fr; }
-  .rv-item { flex-direction: column; }
-  .rv-img { width: 100%; height: 160px; }
-  .card { padding: 18px; }
+  .meta-grid { grid-template-columns: 1fr; }
+  .photo-item { flex-direction: column; }
+  .photo-item-img { width: 100%; height: 160px; }
+  .rv-photo-row { flex-direction: column; }
+  .rv-photo-img { width: 100%; height: 140px; }
+  .card { padding: 16px; }
 }
 </style>
 </head>
 <body>
+
 <div class="hdr">
-  <div class="hdr-left">
-    <img src="/assets/logo.png" class="hdr-logo-img" alt="Logo">
-    <div>
-      <div class="hdr-name">CAIO GENOVA</div>
-      <div class="hdr-sub">Dentista Veterinário</div>
-    </div>
+  <div>
+    <div class="hdr-name">CAIO GENOVA</div>
+    <div class="hdr-sub">Dentista Veterinário</div>
   </div>
   <div class="hdr-tag">Laudo Pós-Cirúrgico</div>
 </div>
+
 <div class="steps">
   <button class="step-btn active" onclick="go(0)" id="s0">01 · DADOS</button>
   <button class="step-btn" onclick="go(1)" id="s1">02 · FOTODOC</button>
   <button class="step-btn" onclick="go(2)" id="s2">03 · RAIOS-X</button>
   <button class="step-btn" onclick="go(3)" id="s3">04 · CONCLUSÃO</button>
   <button class="step-btn" onclick="go(4)" id="s4">05 · REVISÃO</button>
+  <button class="step-btn" onclick="go(5)" id="s5">06 · FINALIZAR</button>
 </div>
+
 <div class="main">
 
-<!-- PAGE 0 -->
+<!-- PAGE 0: DADOS -->
 <div class="page show" id="p0">
   <div class="card">
     <div class="sec-title">DADOS DO PACIENTE</div>
@@ -166,31 +179,22 @@ body {
   <div class="nav-row"><div></div><button class="btn btn-black" onclick="go(1)">PRÓXIMO →</button></div>
 </div>
 
-<!-- PAGE 1 -->
+<!-- PAGE 1: FOTODOC -->
 <div class="page" id="p1">
   <div class="card">
     <div class="sec-title">FOTODOCUMENTAÇÃO</div>
-    <div class="sec-sub">Arraste ou selecione todas as fotos. A IA descreve cada uma automaticamente.</div>
-    <div class="drop-zone" id="dz1" ondragover="event.preventDefault();this.classList.add('over')" ondragleave="this.classList.remove('over')" ondrop="dzDrop(event,'foto')">
-      <input type="file" accept="image/*" multiple onchange="addImgs(this.files,'foto')">
+    <div class="sec-sub">Arraste ou selecione todas as fotos. A IA descreve cada uma individualmente.</div>
+    <div class="drop-zone" id="dz1" ondragover="event.preventDefault();this.classList.add(&#39;over&#39;)" ondragleave="this.classList.remove(&#39;over&#39;)" ondrop="dzDrop(event,&#39;foto&#39;)">
+      <input type="file" accept="image/*" multiple="" onchange="addImgs(this.files,&#39;foto&#39;)">
       <div class="drop-icon">📂</div>
       <div class="drop-hint"><b>Clique ou arraste as fotos aqui</b><br>Selecione quantas quiser de uma vez</div>
     </div>
     <div class="thumb-grid" id="tg-foto"></div>
-    <button class="ai-btn" id="btn-fa" onclick="runAI('foto')">
+    <button class="ai-btn" id="btn-fa" onclick="runAI(&#39;foto&#39;)">
       <span id="sp-fa" class="spin hidden"></span>✦ ANALISAR FOTOS COM IA
     </button>
-    <div id="st-foto" class="ai-status hidden"><div class="sp2"></div>Analisando fotos, aguarde...</div>
-    <div id="res-foto" class="hidden">
-      <div class="gen-box">
-        <div class="gen-label"><div class="gen-dot"></div>ANÁLISE GERADA — EDITE SE NECESSÁRIO</div>
-        <textarea id="tx-foto" rows="10"></textarea>
-      </div>
-      <div class="voice-row">
-        <button class="voice-btn" id="vbtn-foto" onclick="startVoice('tx-foto','vbtn-foto','vst-foto')">🎙 Editar por voz</button>
-        <span class="voice-status" id="vst-foto"></span>
-      </div>
-    </div>
+    <div id="st-foto" class="ai-status hidden"><div class="spin2"></div>Analisando fotos, aguarde...</div>
+    <div id="list-foto" class="photo-list hidden"></div>
   </div>
   <div class="nav-row">
     <button class="btn btn-out" onclick="go(0)">← VOLTAR</button>
@@ -198,31 +202,22 @@ body {
   </div>
 </div>
 
-<!-- PAGE 2 -->
+<!-- PAGE 2: RAIOS-X -->
 <div class="page" id="p2">
   <div class="card">
     <div class="sec-title">RAIOS-X INTRAORAIS</div>
-    <div class="sec-sub">Arraste ou selecione todas as radiografias. A IA analisa cada uma automaticamente.</div>
-    <div class="drop-zone" id="dz2" ondragover="event.preventDefault();this.classList.add('over')" ondragleave="this.classList.remove('over')" ondrop="dzDrop(event,'rx')">
-      <input type="file" accept="image/*" multiple onchange="addImgs(this.files,'rx')">
+    <div class="sec-sub">Arraste ou selecione todas as radiografias. A IA analisa cada uma individualmente.</div>
+    <div class="drop-zone" id="dz2" ondragover="event.preventDefault();this.classList.add(&#39;over&#39;)" ondragleave="this.classList.remove(&#39;over&#39;)" ondrop="dzDrop(event,&#39;rx&#39;)">
+      <input type="file" accept="image/*" multiple="" onchange="addImgs(this.files,&#39;rx&#39;)">
       <div class="drop-icon">🩻</div>
       <div class="drop-hint"><b>Clique ou arraste as radiografias aqui</b><br>Selecione quantas quiser de uma vez</div>
     </div>
     <div class="thumb-grid" id="tg-rx"></div>
-    <button class="ai-btn" id="btn-ra" onclick="runAI('rx')">
+    <button class="ai-btn" id="btn-ra" onclick="runAI(&#39;rx&#39;)">
       <span id="sp-ra" class="spin hidden"></span>✦ ANALISAR RAIOS-X COM IA
     </button>
-    <div id="st-rx" class="ai-status hidden"><div class="sp2"></div>Analisando radiografias, aguarde...</div>
-    <div id="res-rx" class="hidden">
-      <div class="gen-box">
-        <div class="gen-label"><div class="gen-dot"></div>ANÁLISE GERADA — EDITE SE NECESSÁRIO</div>
-        <textarea id="tx-rx" rows="12"></textarea>
-      </div>
-      <div class="voice-row">
-        <button class="voice-btn" id="vbtn-rx" onclick="startVoice('tx-rx','vbtn-rx','vst-rx')">🎙 Editar por voz</button>
-        <span class="voice-status" id="vst-rx"></span>
-      </div>
-    </div>
+    <div id="st-rx" class="ai-status hidden"><div class="spin2"></div>Analisando radiografias, aguarde...</div>
+    <div id="list-rx" class="photo-list hidden"></div>
   </div>
   <div class="nav-row">
     <button class="btn btn-out" onclick="go(1)">← VOLTAR</button>
@@ -230,39 +225,39 @@ body {
   </div>
 </div>
 
-<!-- PAGE 3 -->
+<!-- PAGE 3: CONCLUSÃO -->
 <div class="page" id="p3">
   <div class="card" style="margin-bottom:16px;">
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Conclusão Radiográfica</div>
-    <button class="ai-btn" id="btn-cr" onclick="runAI('radio')">
+    <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Conclusão Radiográfica</div>
+    <button class="ai-btn" id="btn-cr" onclick="runAI(&#39;radio&#39;)">
       <span id="sp-cr" class="spin hidden"></span>✦ GERAR CONCLUSÃO RADIOGRÁFICA
     </button>
-    <div id="st-radio" class="ai-status hidden"><div class="sp2"></div>Gerando conclusão radiográfica...</div>
+    <div id="st-radio" class="ai-status hidden"><div class="spin2"></div>Gerando...</div>
     <div id="res-radio" class="hidden">
-      <div class="gen-box">
-        <div class="gen-label"><div class="gen-dot"></div>GERADO — EDITE SE NECESSÁRIO</div>
+      <div class="conc-box">
+        <div class="conc-label">GERADO — EDITE SE NECESSÁRIO</div>
         <textarea id="tx-radio" rows="10"></textarea>
       </div>
-      <div class="voice-row">
-        <button class="voice-btn" id="vbtn-radio" onclick="startVoice('tx-radio','vbtn-radio','vst-radio')">🎙 Editar por voz</button>
-        <span class="voice-status" id="vst-radio"></span>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <button class="voice-mini" id="vb-radio" onclick="startVoice(&#39;tx-radio&#39;,&#39;vb-radio&#39;,&#39;vs-radio&#39;)">🎙 Editar por voz</button>
+        <span class="voice-mini-st" id="vs-radio"></span>
       </div>
     </div>
   </div>
   <div class="card">
-    <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Conclusão Geral do Laudo</div>
-    <button class="ai-btn" id="btn-cg" onclick="runAI('geral')">
+    <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:10px;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;">Conclusão Geral do Laudo</div>
+    <button class="ai-btn" id="btn-cg" onclick="runAI(&#39;geral&#39;)">
       <span id="sp-cg" class="spin hidden"></span>✦ GERAR CONCLUSÃO GERAL
     </button>
-    <div id="st-geral" class="ai-status hidden"><div class="sp2"></div>Gerando conclusão geral...</div>
+    <div id="st-geral" class="ai-status hidden"><div class="spin2"></div>Gerando...</div>
     <div id="res-geral" class="hidden">
-      <div class="gen-box">
-        <div class="gen-label"><div class="gen-dot"></div>GERADO — EDITE SE NECESSÁRIO</div>
+      <div class="conc-box">
+        <div class="conc-label">GERADO — EDITE SE NECESSÁRIO</div>
         <textarea id="tx-geral" rows="14"></textarea>
       </div>
-      <div class="voice-row">
-        <button class="voice-btn" id="vbtn-geral" onclick="startVoice('tx-geral','vbtn-geral','vst-geral')">🎙 Editar por voz</button>
-        <span class="voice-status" id="vst-geral"></span>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <button class="voice-mini" id="vb-geral" onclick="startVoice(&#39;tx-geral&#39;,&#39;vb-geral&#39;,&#39;vs-geral&#39;)">🎙 Editar por voz</button>
+        <span class="voice-mini-st" id="vs-geral"></span>
       </div>
     </div>
   </div>
@@ -272,23 +267,36 @@ body {
   </div>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PAGE 4: REVISÃO -->
 <div class="page" id="p4">
   <div id="rv-content"></div>
-  <div class="btn-row" style="margin-top:28px;">
-    <button class="btn-pdf" onclick="exportPDF()">⬇ EXPORTAR PDF</button>
-    <button class="btn-wpp" onclick="shareWhatsApp()">📲 COMPARTILHAR NO WHATSAPP</button>
-  </div>
-  <div style="margin-top:12px;">
-    <button class="btn btn-out" onclick="go(3)" style="width:100%;justify-content:center;">← VOLTAR</button>
+  <div class="nav-row" style="flex-wrap:wrap;gap:10px;">
+    <button class="btn btn-out" onclick="go(1)">← Voltar às Fotos</button>
+    <button class="btn btn-out" onclick="go(2)">← Voltar aos Raios-X</button>
+    <button class="btn btn-black" onclick="go(5)">FINALIZAR LAUDO →</button>
   </div>
 </div>
 
+<!-- PAGE 5: FINALIZAR -->
+<div class="page" id="p5">
+  <div class="card">
+    <div class="finalizar-screen">
+      <div class="finalizar-icon">✅</div>
+      <div class="finalizar-title">LAUDO FINALIZADO</div>
+      <div class="finalizar-sub">Seu laudo está pronto para ser exportado ou compartilhado.</div>
+      <button class="btn-pdf" onclick="exportPDF()">⬇ EXPORTAR PDF</button>
+      <button class="btn-wpp" onclick="shareWhatsApp()">📲 COMPARTILHAR NO WHATSAPP</button>
+      <button class="btn btn-out" onclick="go(4)" style="width:100%;justify-content:center;margin-top:8px;">← Voltar à Revisão</button>
+    </div>
+  </div>
 </div>
+
+</div><!-- /main -->
 
 <script>
 const S = { fotos: [], rxs: [], uid: 0 };
 
+// NAV
 function go(n) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('show'));
   document.getElementById('p' + n).classList.add('show');
@@ -301,26 +309,28 @@ function go(n) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// DRAG DROP
 function dzDrop(e, type) {
   e.preventDefault();
   e.currentTarget.classList.remove('over');
   addImgs(e.dataTransfer.files, type);
 }
 
+// ADD IMAGES
 function addImgs(files, type) {
   Array.from(files).forEach(file => {
     const r = new FileReader();
     r.onload = e => {
       const id = ++S.uid;
       const obj = { id, src: e.target.result, b64: e.target.result.split(',')[1], mime: file.type, desc: '' };
-      if (type === 'foto') { S.fotos.push(obj); renderGrid('foto'); }
-      else { S.rxs.push(obj); renderGrid('rx'); }
+      if (type === 'foto') { S.fotos.push(obj); renderThumbs('foto'); }
+      else { S.rxs.push(obj); renderThumbs('rx'); }
     };
     r.readAsDataURL(file);
   });
 }
 
-function renderGrid(type) {
+function renderThumbs(type) {
   const arr = type === 'foto' ? S.fotos : S.rxs;
   const el = document.getElementById('tg-' + type);
   el.innerHTML = '';
@@ -335,11 +345,12 @@ function renderGrid(type) {
 function rm(type, id) {
   if (type === 'foto') S.fotos = S.fotos.filter(x => x.id !== id);
   else S.rxs = S.rxs.filter(x => x.id !== id);
-  renderGrid(type);
+  renderThumbs(type);
 }
 
 function v(id) { const e = document.getElementById(id); return e ? e.value.trim() : ''; }
 
+// API CALL
 async function callAPI(prompt, images) {
   const res = await fetch('/api/analyze', {
     method: 'POST',
@@ -351,35 +362,64 @@ async function callAPI(prompt, images) {
   return data.text;
 }
 
-async function runAI(mode) {
-  const map = { foto: ['fa','st-foto','res-foto','tx-foto'], rx: ['ra','st-rx','res-rx','tx-rx'], radio: ['cr','st-radio','res-radio','tx-radio'], geral: ['cg','st-geral','res-geral','tx-geral'] };
-  const [key, stId, resId, txId] = map[mode];
-  const btnEl = document.getElementById('btn-' + key);
-  const spEl = document.getElementById('sp-' + key);
+// RENDER PHOTO LIST (after AI analysis)
+function renderPhotoList(type) {
+  const arr = type === 'foto' ? S.fotos : S.rxs;
+  const listEl = document.getElementById('list-' + type);
+  listEl.innerHTML = '';
+  listEl.classList.remove('hidden');
+  arr.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'photo-item';
+    div.innerHTML = `
+      <img class="photo-item-img" src="${item.src}">
+      <div class="photo-item-right">
+        <div class="photo-item-num">Imagem ${idx + 1}</div>
+        <textarea class="photo-item-ta" id="desc-${type}-${item.id}" rows="4">${item.desc}</textarea>
+        <div class="photo-item-actions">
+          <button class="voice-mini" id="vm-${type}-${item.id}" onclick="startVoiceItem('${type}',${item.id},'vm-${type}-${item.id}','vs-${type}-${item.id}')">🎙 Editar por voz</button>
+          <span class="voice-mini-st" id="vs-${type}-${item.id}"></span>
+        </div>
+      </div>`;
+    listEl.appendChild(div);
+  });
+}
 
+// SAVE DESCRIPTIONS FROM INPUTS
+function saveDescs(type) {
+  const arr = type === 'foto' ? S.fotos : S.rxs;
+  arr.forEach(item => {
+    const el = document.getElementById('desc-' + type + '-' + item.id);
+    if (el) item.desc = el.value;
+  });
+}
+
+// RUN AI
+async function runAI(mode) {
   const pac = v('pac') || 'paciente', raca = v('raca') || 'cão', idade = v('idade'), peso = v('peso');
   let prompt = '', images = [];
 
   if (mode === 'foto') {
     if (!S.fotos.length) { alert('Adicione pelo menos uma foto.'); return; }
     images = S.fotos;
-    prompt = `Você é o MV. Caio Genova, dentista veterinário. Analise as ${S.fotos.length} fotos clínicas do paciente ${pac}, ${raca}${idade?', '+idade:''}${peso?', '+peso:''}.
+    prompt = `Você é o MV. Caio Genova, dentista veterinário especializado em odontologia de pequenos animais. Analise as ${S.fotos.length} fotos clínicas do paciente ${pac}, ${raca}${idade?', '+idade:''}${peso?', '+peso:''}.
 
-Para cada imagem numerada, escreva UMA descrição clínica técnica (máximo 4 linhas):
-- Pré-tratamento: acúmulo de placa, tártaro, gengivite, estado dos dentes, mucosa
-- Pós-tratamento: exodontias realizadas com numeração dos elementos se visível, suturas, profilaxia, polimento
-- Trans-operatório: campo cirúrgico, estruturas expostas, achados
+Para cada imagem, escreva uma descrição clínica técnica em português (máximo 4 linhas):
+- Identifique automaticamente: pré ou pós-tratamento, e o lado (esquerdo/direito/frontal)
+- Pré-tratamento: descreva acúmulo de placa, tártaro, gengivite, estado dos dentes, mucosa
+- Pós-tratamento: exodontias realizadas com numeração dos elementos dentários, suturas, resultado da profilaxia
+- Trans-operatório: campo cirúrgico, estruturas expostas, achados intraoperatórios
 
-IMPORTANTE: Identifique automaticamente se é pré ou pós tratamento e o lado (esquerdo/direito) observando a imagem.
-
-Formato OBRIGATÓRIO — use exatamente este separador entre imagens:
+Use EXATAMENTE este formato — o separador é OBRIGATÓRIO entre cada imagem:
 ###IMG1###
-[descrição da imagem 1]
+Imagem 1 — [identificação automática do tipo]:
+[descrição]
 ###IMG2###
-[descrição da imagem 2]
-(continue para todas as imagens)
+Imagem 2 — [identificação automática do tipo]:
+[descrição]
+(continue para todas as ${S.fotos.length} imagens)
 
-Responda APENAS com as descrições no formato acima.`;
+Responda APENAS com o conteúdo no formato acima, sem texto adicional.`;
   }
 
   if (mode === 'rx') {
@@ -387,59 +427,70 @@ Responda APENAS com as descrições no formato acima.`;
     images = S.rxs;
     prompt = `Você é o MV. Caio Genova, dentista veterinário. Analise ${S.rxs.length} radiografias intraorais do paciente ${pac}, ${raca}.
 
-Para cada imagem, escreva uma descrição radiográfica técnica (máximo 5 linhas):
-- Elementos dentários visíveis com numeração triadan
-- Achados: reabsorção dentária, perda óssea alveolar, anquilose, alterações periapicais
+Para cada imagem, escreva uma descrição radiográfica técnica em português (máximo 5 linhas):
+- Elementos dentários visíveis com numeração triadan modificado
+- Achados: lesão de reabsorção, perda óssea alveolar, anquilose, alterações periapicais, fraturas
 - Se sem alterações, afirme claramente
 
-Formato OBRIGATÓRIO:
+Use EXATAMENTE este formato:
 ###IMG1###
+Imagem 1:
 [descrição]
 ###IMG2###
+Imagem 2:
 [descrição]
-(continue para todas)
+(continue para todas as ${S.rxs.length} imagens)
 
-Responda APENAS com as descrições no formato acima.`;
+Responda APENAS com o conteúdo no formato acima.`;
   }
 
   if (mode === 'radio') {
     prompt = `Você é o MV. Caio Genova. Escreva a CONCLUSÃO RADIOGRÁFICA para ${pac}, ${raca}${idade?', '+idade:''}${peso?', '+peso:''}.
 
 ACHADOS RADIOGRÁFICOS:
-${v('tx-rx') || '(não informado)'}
+${getDescs('rx') || v('tx-rx') || '(não informado)'}
 
-Liste em tópicos os achados relevantes. Use linguagem clínica técnica veterinária. Ao final mencione que os demais elementos estão sem alterações dignas de nota.
+Liste em tópicos todos os achados relevantes. Use linguagem clínica técnica veterinária. Ao final mencione que os demais elementos estão sem alterações dignas de nota na presente avaliação.
 
-Responda APENAS com os tópicos.`;
+Responda APENAS com os tópicos da conclusão radiográfica, sem introdução.`;
   }
 
   if (mode === 'geral') {
     prompt = `Você é o MV. Caio Genova. Escreva a CONCLUSÃO GERAL do laudo pós-cirúrgico para ${pac}, ${raca}${idade?', '+idade:''}${peso?', '+peso:''}.
 
-ACHADOS CLÍNICOS: ${v('tx-foto') || '(não informado)'}
-ACHADOS RADIOGRÁFICOS: ${v('tx-rx') || '(não informado)'}
+ACHADOS CLÍNICOS:
+${getDescs('foto') || '(não informado)'}
 
-Escreva 5 parágrafos técnicos e profissionais cobrindo:
-1. Diagnóstico geral e achados
-2. Tratamentos realizados
-3. Dentes preservados e critério utilizado
-4. Alerta sobre lesões de reabsorção e evolução futura
-5. Orientação sobre exames complementares e causas não odontogênicas
+ACHADOS RADIOGRÁFICOS:
+${getDescs('rx') || v('tx-rx') || '(não informado)'}
 
-Responda APENAS com os parágrafos.`;
+Escreva 5 parágrafos técnicos e profissionais:
+1. Diagnóstico geral e achados clínicos e radiográficos
+2. Tratamentos realizados: exodontias com elementos dentários, remoção de raízes, profilaxia com ultrassom, polimento com pasta abrasiva
+3. Elementos preservados e critério clínico/radiográfico utilizado
+4. Alerta sobre lesões de reabsorção: possível evolução, causa desconhecida, elementos em estágio inicial
+5. Orientação sobre exames complementares (tomografia feixe cônico) e possíveis causas não odontogênicas
+
+Responda APENAS com os 5 parágrafos, sem introdução.`;
   }
+
+  // UI setup
+  const btnMap = { foto:'fa', rx:'ra', radio:'cr', geral:'cg' };
+  const key = btnMap[mode];
+  const btnEl = document.getElementById('btn-' + key);
+  const spEl = document.getElementById('sp-' + key);
+  const stEl = document.getElementById('st-' + (mode==='foto'?'foto':mode==='rx'?'rx':mode==='radio'?'radio':'geral'));
 
   btnEl.disabled = true;
   spEl.classList.remove('hidden');
-  document.getElementById(stId).classList.remove('hidden');
-  document.getElementById(resId).classList.add('hidden');
+  stEl.classList.remove('hidden');
 
   try {
     const text = await callAPI(prompt, images);
 
-    // Parse individual photo descriptions
-    if ((mode === 'foto' || mode === 'rx') && text.includes('###IMG')) {
+    if (mode === 'foto' || mode === 'rx') {
       const arr = mode === 'foto' ? S.fotos : S.rxs;
+      // Parse individual descriptions
       arr.forEach((item, idx) => {
         const marker = `###IMG${idx + 1}###`;
         const nextMarker = `###IMG${idx + 2}###`;
@@ -447,182 +498,220 @@ Responda APENAS com os parágrafos.`;
         if (start !== -1) {
           const end = text.indexOf(nextMarker) !== -1 ? text.indexOf(nextMarker) : text.length;
           item.desc = text.substring(start + marker.length, end).trim();
+        } else {
+          // fallback: split by double newline
+          const parts = text.split(/\n\n+/);
+          if (parts[idx]) item.desc = parts[idx].trim();
         }
       });
+      renderPhotoList(mode);
+      // Hide thumb grid, keep drop zone visible
+      document.getElementById('tg-' + mode).classList.add('hidden');
+    } else {
+      const txId = mode === 'radio' ? 'tx-radio' : 'tx-geral';
+      const resId = mode === 'radio' ? 'res-radio' : 'res-geral';
+      document.getElementById(txId).value = text;
+      document.getElementById(resId).classList.remove('hidden');
     }
 
-    document.getElementById(txId).value = text.replace(/###IMG\d+###/g, '\n').trim();
-    document.getElementById(resId).classList.remove('hidden');
   } catch (err) {
-    document.getElementById(txId).value = 'Erro: ' + err.message;
-    document.getElementById(resId).classList.remove('hidden');
+    alert('Erro ao gerar análise: ' + err.message);
   } finally {
     btnEl.disabled = false;
     spEl.classList.add('hidden');
-    document.getElementById(stId).classList.add('hidden');
+    stEl.classList.add('hidden');
   }
 }
 
-// VOICE
-let mediaRecorder = null, audioChunks = [];
+function getDescs(type) {
+  saveDescs(type);
+  const arr = type === 'foto' ? S.fotos : S.rxs;
+  return arr.map((item, i) => `Imagem ${i+1}: ${item.desc}`).join('\n\n');
+}
+
+// VOICE - individual item
+let mediaRecorder = null, audioChunks = [], activeVoiceBtn = null, activeVoiceSt = null, activeVoiceTxId = null;
+
+async function startVoiceItem(type, id, btnId, stId) {
+  const txId = 'desc-' + type + '-' + id;
+  startVoice(txId, btnId, stId);
+}
+
 async function startVoice(txId, btnId, stId) {
-  const btn = document.getElementById(btnId), st = document.getElementById(stId);
+  const btn = document.getElementById(btnId);
+  const st = document.getElementById(stId);
   if (mediaRecorder && mediaRecorder.state === 'recording') { mediaRecorder.stop(); return; }
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     mediaRecorder = new MediaRecorder(stream);
     audioChunks = [];
+    activeVoiceBtn = btn; activeVoiceSt = st; activeVoiceTxId = txId;
     mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
     mediaRecorder.onstop = async () => {
-      btn.classList.remove('recording'); btn.textContent = '🎙 Editar por voz'; st.textContent = 'Processando...';
+      btn.classList.remove('recording');
+      btn.innerHTML = '🎙 Editar por voz';
+      st.textContent = 'Processando...';
       const blob = new Blob(audioChunks, { type: 'audio/webm' });
       const reader = new FileReader();
       reader.onload = async e => {
         const b64 = e.target.result.split(',')[1];
+        const currentText = document.getElementById(txId)?.value || '';
         try {
-          const text = await callAPI(`Você é o MV. Caio Genova. O texto atual é:\n\n"${v(txId)}"\n\nO veterinário gravou uma instrução de voz para modificar este texto. Aplique as modificações e retorne APENAS o texto atualizado.`, [{ b64, mime: 'audio/webm' }]);
-          document.getElementById(txId).value = text;
-          st.textContent = '✓ Atualizado!'; setTimeout(() => st.textContent = '', 3000);
-        } catch { st.textContent = 'Erro ao processar voz.'; }
+          const result = await callAPI(
+            `Você é o MV. Caio Genova, dentista veterinário. O texto atual desta seção do laudo é:\n\n"${currentText}"\n\nO veterinário gravou uma instrução de voz para modificar APENAS este trecho. Aplique as modificações solicitadas na gravação e retorne APENAS o texto atualizado, sem comentários adicionais, mantendo o estilo técnico veterinário.`,
+            [{ b64, mime: 'audio/webm' }]
+          );
+          const el = document.getElementById(txId);
+          if (el) el.value = result;
+          // Update desc in state
+          S.fotos.concat(S.rxs).forEach(item => {
+            if (txId.includes(String(item.id))) item.desc = result;
+          });
+          st.textContent = '✓ Atualizado!';
+          setTimeout(() => st.textContent = '', 3000);
+        } catch(err) {
+          st.textContent = 'Erro: ' + err.message;
+        }
       };
       reader.readAsDataURL(blob);
       stream.getTracks().forEach(t => t.stop());
     };
     mediaRecorder.start();
-    btn.classList.add('recording'); btn.textContent = '⏹ Parar gravação'; st.textContent = 'Gravando...';
-  } catch { document.getElementById(stId).textContent = 'Permita acesso ao microfone'; }
+    btn.classList.add('recording');
+    btn.innerHTML = '⏹ Parar';
+    st.textContent = 'Gravando... clique em Parar quando terminar';
+  } catch(err) {
+    st.textContent = 'Permita acesso ao microfone nas configurações do navegador';
+  }
 }
 
-// REVIEW
+// BUILD REVIEW
 function buildReview() {
+  saveDescs('foto');
+  saveDescs('rx');
   const pac = v('pac'), raca = v('raca'), idade = v('idade'), peso = v('peso');
   const sexo = v('sexo'), tutor = v('tutor'), dataVal = v('data');
   const dataBR = dataVal ? new Date(dataVal + 'T12:00:00').toLocaleDateString('pt-BR') : '—';
 
-  let h = `<div class="meta-card">
-    <div class="mc-item"><strong>Paciente</strong><span>${(pac||'—').toUpperCase()}, ${raca||'—'}, ${sexo}</span></div>
-    <div class="mc-item"><strong>Tutor</strong><span>${tutor||'—'}</span></div>
-    <div class="mc-item"><strong>Idade / Peso</strong><span>${idade||'—'} · ${peso||'—'}</span></div>
-    <div class="mc-item"><strong>Data</strong><span>${dataBR}</span></div>
+  let h = `<div class="meta-grid">
+    <div class="meta-item"><strong>Paciente</strong><span>${(pac||'—').toUpperCase()}, ${raca||'—'}, ${sexo}</span></div>
+    <div class="meta-item"><strong>Tutor</strong><span>${tutor||'—'}</span></div>
+    <div class="meta-item"><strong>Idade / Peso</strong><span>${idade||'—'} · ${peso||'—'}</span></div>
+    <div class="meta-item"><strong>Data</strong><span>${dataBR}</span></div>
   </div>`;
 
-  h += `<div class="sec-hdr">FOTODOCUMENTAÇÃO</div><div class="sec-body">`;
-  S.fotos.forEach((f, i) => {
-    h += `<div class="rv-item">
-      <img class="rv-img" src="${f.src}">
-      <div class="rv-info">
-        <div class="rv-tag">IMAGEM ${i+1}</div>
-        <textarea class="rv-ta" id="rdesc-f${f.id}">${f.desc}</textarea>
-      </div>
-    </div>`;
-  });
-  h += `</div>`;
+  // Fotodoc
+  h += `<div class="rv-section"><div class="rv-hdr">FOTODOCUMENTAÇÃO</div><div class="rv-body">`;
+  if (S.fotos.length) {
+    S.fotos.forEach((f, i) => {
+      h += `<div class="rv-photo-row">
+        <img class="rv-photo-img" src="${f.src}">
+        <div class="rv-photo-info">
+          <div class="rv-photo-num">Imagem ${i+1}</div>
+          <div class="rv-photo-desc">${(f.desc || '—').replace(/\n/g,'<br>')}</div>
+        </div>
+      </div>`;
+    });
+  } else { h += `<p style="color:#aaa;font-size:12px;">Nenhuma foto adicionada.</p>`; }
+  h += `</div></div>`;
 
-  h += `<div class="sec-hdr">RAIOS-X INTRAORAIS</div><div class="sec-body">`;
-  S.rxs.forEach((r, i) => {
-    h += `<div class="rv-item">
-      <img class="rv-img" src="${r.src}">
-      <div class="rv-info">
-        <div class="rv-tag">IMAGEM ${i+1}</div>
-        <textarea class="rv-ta" id="rdesc-r${r.id}">${r.desc}</textarea>
-      </div>
-    </div>`;
-  });
-  h += `</div>`;
+  // Raios-X
+  h += `<div class="rv-section"><div class="rv-hdr">RAIOS-X INTRAORAIS</div><div class="rv-body">`;
+  if (S.rxs.length) {
+    S.rxs.forEach((r, i) => {
+      h += `<div class="rv-photo-row">
+        <img class="rv-photo-img" src="${r.src}">
+        <div class="rv-photo-info">
+          <div class="rv-photo-num">Imagem ${i+1}</div>
+          <div class="rv-photo-desc">${(r.desc || '—').replace(/\n/g,'<br>')}</div>
+        </div>
+      </div>`;
+    });
+  } else { h += `<p style="color:#aaa;font-size:12px;">Nenhuma radiografia adicionada.</p>`; }
+  h += `</div></div>`;
 
-  h += `<div class="sec-hdr">CONCLUSÃO RADIOGRÁFICA</div>
-  <div class="sec-body"><textarea class="rv-big" id="rv-radio" rows="10">${v('tx-radio')}</textarea>
-  <div class="voice-row" style="margin-top:8px;">
-    <button class="voice-btn" id="vbtn-rvradio" onclick="startVoice('rv-radio','vbtn-rvradio','vst-rvradio')">🎙 Editar por voz</button>
-    <span class="voice-status" id="vst-rvradio"></span>
-  </div></div>`;
-
-  h += `<div class="sec-hdr">CONCLUSÃO GERAL</div>
-  <div class="sec-body"><textarea class="rv-big" id="rv-geral" rows="14">${v('tx-geral')}</textarea>
-  <div class="voice-row" style="margin-top:8px;">
-    <button class="voice-btn" id="vbtn-rvgeral" onclick="startVoice('rv-geral','vbtn-rvgeral','vst-rvgeral')">🎙 Editar por voz</button>
-    <span class="voice-status" id="vst-rvgeral"></span>
-  </div></div>`;
+  // Conclusões
+  h += `<div class="rv-section"><div class="rv-hdr">CONCLUSÃO RADIOGRÁFICA</div><div class="rv-body"><div class="rv-text-block">${v('tx-radio')||'—'}</div></div></div>`;
+  h += `<div class="rv-section"><div class="rv-hdr">CONCLUSÃO GERAL</div><div class="rv-body"><div class="rv-text-block">${v('tx-geral')||'—'}</div></div></div>`;
 
   document.getElementById('rv-content').innerHTML = h;
 }
 
 // EXPORT PDF
 function exportPDF() {
+  saveDescs('foto');
+  saveDescs('rx');
   const pac = v('pac'), raca = v('raca'), idade = v('idade'), peso = v('peso');
   const sexo = v('sexo'), tutor = v('tutor'), dataVal = v('data');
   const dataBR = dataVal ? new Date(dataVal + 'T12:00:00').toLocaleDateString('pt-BR') : '—';
-  const tradio = document.getElementById('rv-radio')?.value || v('tx-radio');
-  const tgeral = document.getElementById('rv-geral')?.value || v('tx-geral');
+  const tradio = v('tx-radio');
+  const tgeral = v('tx-geral');
   const logoUrl = window.location.origin + '/assets/logo.png';
   const fundoUrl = window.location.origin + '/assets/fundo.png';
 
-  const fotosH = S.fotos.map((f, i) => {
-    const desc = document.getElementById('rdesc-f' + f.id)?.value || f.desc || '';
-    return `<div class="foto-item">
+  const fotosH = S.fotos.map((f, i) => `
+    <div class="foto-item">
       <img src="${f.src}" class="foto-img">
       <div class="foto-desc">
         <div class="foto-num">IMAGEM ${i+1}</div>
-        <p>${desc.replace(/\n/g,'<br>')}</p>
+        <p>${(f.desc||'').replace(/\n/g,'<br>')}</p>
       </div>
-    </div>`;
-  }).join('');
+    </div>`).join('');
 
-  const rxH = S.rxs.map((r, i) => {
-    const desc = document.getElementById('rdesc-r' + r.id)?.value || r.desc || '';
-    return `<div class="foto-item">
+  const rxH = S.rxs.map((r, i) => `
+    <div class="foto-item">
       <img src="${r.src}" class="foto-img">
       <div class="foto-desc">
         <div class="foto-num">IMAGEM ${i+1}</div>
-        <p>${desc.replace(/\n/g,'<br>')}</p>
+        <p>${(r.desc||'').replace(/\n/g,'<br>')}</p>
       </div>
-    </div>`;
-  }).join('');
+    </div>`).join('');
 
   const win = window.open('', '_blank');
-  if (!win) { alert('Permita popups para exportar.'); return; }
+  if (!win) { alert('Permita popups para exportar o PDF.'); return; }
 
   win.document.write(`<!DOCTYPE html><html><head>
-<meta charset="UTF-8">
-<title>Laudo - ${pac}</title>
+<meta charset="UTF-8"><title>Laudo - ${pac}</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 @page { size: A4 landscape; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'DM Sans', sans-serif; background: #e8e6e0; color: #111; }
-
 .cover {
   width: 297mm; height: 210mm;
   background: #e8e6e0 url('${fundoUrl}') center/cover no-repeat;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 20mm 20mm; page-break-after: always; position: relative;
+  padding: 18mm 22mm; page-break-after: always; position: relative;
 }
-.cover-logo { width: 80px; margin-bottom: 20px; }
-.cover-tag { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 4px; color: #555; margin-bottom: 4px; }
-.cover-title { font-family: 'Bebas Neue', sans-serif; font-size: 60px; letter-spacing: 3px; color: #0a0a0a; line-height: 0.9; margin-bottom: 30px; }
-.cover-info-row { font-size: 13px; margin-bottom: 6px; }
-.cover-info-row strong { font-weight: 600; margin-right: 4px; }
-.cover-contact { position: absolute; bottom: 15mm; left: 20mm; font-family: 'DM Mono', monospace; font-size: 9px; color: #888; letter-spacing: 1px; }
-
+.cover-logo { width: 90px; margin-bottom: 24px; }
+.cover-tag { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 4px; color: #666; margin-bottom: 4px; }
+.cover-title { font-family: 'Bebas Neue', sans-serif; font-size: 64px; letter-spacing: 3px; color: #0a0a0a; line-height: 0.9; margin-bottom: 32px; }
+.cover-row { font-size: 14px; margin-bottom: 7px; }
+.cover-row strong { font-weight: 600; margin-right: 6px; }
+.cover-footer { position: absolute; bottom: 14mm; left: 22mm; font-family: 'DM Mono', monospace; font-size: 9px; color: #999; letter-spacing: 1px; }
 .doc-page {
   width: 297mm; min-height: 210mm;
   background: #e8e6e0 url('${fundoUrl}') center/cover no-repeat;
-  padding: 15mm 20mm 20mm; page-break-after: always; position: relative;
+  padding: 14mm 20mm 18mm; page-break-after: always; position: relative;
 }
-.page-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: #111; border-bottom: 2px solid #111; padding-bottom: 8px; margin-bottom: 16px; text-align: right; }
-.page-label { position: absolute; left: 8mm; top: 50%; transform: translateY(-50%) rotate(-90deg); font-family: 'Bebas Neue', sans-serif; font-size: 9px; letter-spacing: 3px; color: #bbb; white-space: nowrap; }
-
+.page-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px; color: #111; border-bottom: 2px solid #111; padding-bottom: 8px; margin-bottom: 16px; text-align: right; }
 .foto-item { display: flex; gap: 14px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #ccc; page-break-inside: avoid; align-items: flex-start; }
-.foto-item:last-child { border: none; }
-.foto-img { width: 110px; height: 80px; object-fit: cover; border-radius: 5px; flex-shrink: 0; border: 1px solid #ccc; }
+.foto-item:last-child { border: none; margin-bottom: 0; }
+.foto-img { width: 120px; height: 88px; object-fit: cover; border-radius: 5px; flex-shrink: 0; border: 1px solid #ccc; }
 .foto-desc { flex: 1; }
-.foto-num { font-size: 9px; font-family: 'DM Mono', monospace; color: #999; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; font-weight: 600; }
-.foto-desc p { font-size: 11px; line-height: 1.7; }
-
-.conc-text { font-size: 12px; line-height: 1.85; white-space: pre-wrap; }
-
-.page-footer { position: absolute; bottom: 8mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 8px; color: #aaa; letter-spacing: 1px; border-top: 1px solid #ccc; padding-top: 6px; }
-
+.foto-num { font-size: 9px; font-family: 'DM Mono', monospace; color: #888; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; font-weight: 600; }
+.foto-desc p { font-size: 11px; line-height: 1.75; }
+.conc-text { font-size: 12px; line-height: 1.9; white-space: pre-wrap; }
+.page-footer { position: absolute; bottom: 7mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 8px; color: #bbb; letter-spacing: 1px; border-top: 1px solid #ccc; padding-top: 6px; }
+.obrigado-page {
+  width: 297mm; height: 210mm;
+  background: #0a0a0a url('${fundoUrl}') center/cover no-repeat;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative;
+}
+.obrigado-title { font-family: 'Bebas Neue', sans-serif; font-size: 80px; letter-spacing: 8px; color: #fff; margin-bottom: 16px; }
+.obrigado-sub { font-family: 'DM Mono', monospace; font-size: 11px; color: #555; letter-spacing: 2px; text-transform: uppercase; }
+.obrigado-logo { position: absolute; bottom: 20mm; width: 70px; opacity: 0.3; }
 @media print { body { background: #e8e6e0; } }
 </style></head><body>
 
@@ -630,38 +719,40 @@ body { font-family: 'DM Sans', sans-serif; background: #e8e6e0; color: #111; }
   <img src="${logoUrl}" class="cover-logo">
   <div class="cover-tag">LAUDO</div>
   <div class="cover-title">PÓS-<br>CIRÚRGICO</div>
-  <div class="cover-info-row"><strong>Paciente:</strong> ${(pac||'—').toUpperCase()}, ${idade||'—'}, ${raca?raca.toUpperCase():'—'}, ${sexo}, ${peso||'—'}</div>
-  <div class="cover-info-row"><strong>Tutor:</strong> ${tutor||'—'}</div>
-  <div class="cover-info-row"><strong>Data:</strong> ${dataBR}</div>
-  <div class="cover-contact">WhatsApp (16) 98225-1690 · @caiogenovaprates</div>
+  <div class="cover-row"><strong>Paciente:</strong> ${(pac||'—').toUpperCase()}, ${idade||'—'}, ${raca?raca.toUpperCase():'—'}, ${sexo}, ${peso||'—'}</div>
+  <div class="cover-row"><strong>Tutor:</strong> ${tutor||'—'}</div>
+  <div class="cover-row"><strong>Data:</strong> ${dataBR}</div>
+  <div class="cover-footer">WhatsApp (16) 98225-1690 · @caiogenovaprates</div>
 </div>
 
 <div class="doc-page">
-  <div class="page-label">LAUDO · PÓS-CIRÚRGICO</div>
   <div class="page-title">FOTODOCUMENTAÇÃO</div>
   ${fotosH || '<p style="color:#aaa;font-size:12px;">Nenhuma foto adicionada.</p>'}
   <div class="page-footer"><span>MV. CAIO GENOVA · DENTISTA VETERINÁRIO</span><span>WhatsApp (16) 98225-1690</span></div>
 </div>
 
 <div class="doc-page">
-  <div class="page-label">LAUDO · PÓS-CIRÚRGICO</div>
   <div class="page-title">RAIOS-X INTRAORAIS</div>
   ${rxH || '<p style="color:#aaa;font-size:12px;">Nenhuma radiografia adicionada.</p>'}
   <div class="page-footer"><span>MV. CAIO GENOVA · DENTISTA VETERINÁRIO</span><span>WhatsApp (16) 98225-1690</span></div>
 </div>
 
 <div class="doc-page">
-  <div class="page-label">LAUDO · PÓS-CIRÚRGICO</div>
   <div class="page-title">CONCLUSÃO RADIOGRÁFICA</div>
   <div class="conc-text">${tradio||'—'}</div>
   <div class="page-footer"><span>MV. CAIO GENOVA · DENTISTA VETERINÁRIO</span><span>WhatsApp (16) 98225-1690</span></div>
 </div>
 
 <div class="doc-page">
-  <div class="page-label">LAUDO · PÓS-CIRÚRGICO</div>
   <div class="page-title">CONCLUSÃO</div>
   <div class="conc-text">${tgeral||'—'}</div>
   <div class="page-footer"><span>MV. CAIO GENOVA · DENTISTA VETERINÁRIO</span><span>@caiogenovaprates</span></div>
+</div>
+
+<div class="obrigado-page">
+  <div class="obrigado-title">OBRIGADO</div>
+  <div class="obrigado-sub">MV. Caio Genova · Dentista Veterinário</div>
+  <img src="${logoUrl}" class="obrigado-logo">
 </div>
 
 </body></html>`);
@@ -671,13 +762,22 @@ body { font-family: 'DM Sans', sans-serif; background: #e8e6e0; color: #111; }
 
 // WHATSAPP
 function shareWhatsApp() {
+  saveDescs('foto');
+  saveDescs('rx');
   const pac = v('pac') || 'paciente';
   const tutor = v('tutor') || '';
-  const msg = encodeURIComponent(`Olá${tutor ? ' ' + tutor : ''}! Segue o laudo pós-cirúrgico de ${pac}. Para visualizar o PDF, acesse o link e exporte.\n\n${window.location.href}`);
-  window.open(`https://wa.me/?text=${msg}`, '_blank');
+  // Generate PDF blob and share
+  const msg = encodeURIComponent(`Olá${tutor?' '+tutor:''}! 🐾\n\nSegue o laudo pós-cirúrgico de *${pac}*.\n\nPara visualizar, exporte o PDF pelo link abaixo.\n\n— MV. Caio Genova · Dentista Veterinário`);
+  // Open WhatsApp with message - PDF sharing via web requires the user to manually attach
+  const waUrl = `https://wa.me/?text=${msg}`;
+  // First export PDF, then open WhatsApp
+  exportPDF();
+  setTimeout(() => window.open(waUrl, '_blank'), 2000);
 }
 
+// INIT
 document.getElementById('data').valueAsDate = new Date();
 </script>
-</body>
-</html>
+
+
+</body></html>
