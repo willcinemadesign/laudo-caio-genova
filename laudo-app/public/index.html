@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)file:///C:/Users/User/Downloads/index_1.html -->
+<!-- saved from url=(0044)file:///C:/Users/User/Downloads/index_2.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -490,22 +490,46 @@ Responda APENAS com os 5 parágrafos, sem introdução.`;
 
     if (mode === 'foto' || mode === 'rx') {
       const arr = mode === 'foto' ? S.fotos : S.rxs;
-      // Parse individual descriptions
-      arr.forEach((item, idx) => {
-        const marker = `###IMG${idx + 1}###`;
-        const nextMarker = `###IMG${idx + 2}###`;
-        const start = text.indexOf(marker);
-        if (start !== -1) {
-          const end = text.indexOf(nextMarker) !== -1 ? text.indexOf(nextMarker) : text.length;
-          item.desc = text.substring(start + marker.length, end).trim();
-        } else {
-          // fallback: split by double newline
-          const parts = text.split(/\n\n+/);
-          if (parts[idx]) item.desc = parts[idx].trim();
+
+      function parseDescs(raw, count) {
+        const results = new Array(count).fill('');
+        // Try ###IMG### markers
+        if (raw.includes('###IMG1###')) {
+          for (let i = 0; i < count; i++) {
+            const m = '###IMG' + (i+1) + '###';
+            const nm = '###IMG' + (i+2) + '###';
+            const s = raw.indexOf(m);
+            if (s !== -1) {
+              const e = raw.indexOf(nm) !== -1 ? raw.indexOf(nm) : raw.length;
+              results[i] = raw.substring(s + m.length, e).trim();
+            }
+          }
+          return results;
         }
-      });
+        // Try "Imagem N:" or "Imagem N —" pattern
+        const re = /Imagem\s+(\d+)\s*[:\-\u2014]/gi;
+        let match, positions = [];
+        while ((match = re.exec(raw)) !== null) {
+          positions.push({ idx: parseInt(match[1]) - 1, pos: match.index });
+        }
+        if (positions.length > 0) {
+          for (let i = 0; i < positions.length; i++) {
+            const s = positions[i].pos;
+            const e = i+1 < positions.length ? positions[i+1].pos : raw.length;
+            const idx = positions[i].idx;
+            if (idx < count) results[idx] = raw.substring(s, e).trim();
+          }
+          return results;
+        }
+        // Last fallback: split by double newlines
+        const chunks = raw.split(/\n{2,}/).filter(c => c.trim());
+        for (let i = 0; i < Math.min(count, chunks.length); i++) results[i] = chunks[i].trim();
+        return results;
+      }
+
+      const descs = parseDescs(text, arr.length);
+      arr.forEach((item, idx) => { item.desc = descs[idx] || ''; });
       renderPhotoList(mode);
-      // Hide thumb grid, keep drop zone visible
       document.getElementById('tg-' + mode).classList.add('hidden');
     } else {
       const txId = mode === 'radio' ? 'tx-radio' : 'tx-geral';
@@ -705,18 +729,19 @@ body { font-family: 'DM Sans', sans-serif; background: #e8e6e0; color: #111; }
 .page-footer { position: absolute; bottom: 7mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 8px; color: #bbb; letter-spacing: 1px; border-top: 1px solid #ccc; padding-top: 6px; }
 .obrigado-page {
   width: 297mm; height: 210mm;
-  background: #0a0a0a url('${fundoUrl}') center/cover no-repeat;
+  background: #e8e6e0 url('${fundoUrl}') center/cover no-repeat;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   position: relative;
 }
-.obrigado-title { font-family: 'Bebas Neue', sans-serif; font-size: 80px; letter-spacing: 8px; color: #fff; margin-bottom: 16px; }
-.obrigado-sub { font-family: 'DM Mono', monospace; font-size: 11px; color: #555; letter-spacing: 2px; text-transform: uppercase; }
-.obrigado-logo { position: absolute; bottom: 20mm; width: 70px; opacity: 0.3; }
+.obrigado-title { font-family: 'Bebas Neue', sans-serif; font-size: 80px; letter-spacing: 8px; color: #0a0a0a; margin-bottom: 16px; }
+.obrigado-sub { font-family: 'DM Mono', monospace; font-size: 11px; color: #555; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.obrigado-contact { font-family: 'DM Mono', monospace; font-size: 10px; color: #777; letter-spacing: 1.5px; text-align: center; line-height: 1.8; }
+.obrigado-logo { position: absolute; bottom: 16mm; width: 80px; filter: brightness(0); opacity: 0.8; }
 @media print { body { background: #e8e6e0; } }
 </style></head><body>
 
 <div class="cover">
-  <img src="${logoUrl}" class="cover-logo">
+  <img src="${logoUrl}" class="cover-logo" style="filter: brightness(0);">
   <div class="cover-tag">LAUDO</div>
   <div class="cover-title">PÓS-<br>CIRÚRGICO</div>
   <div class="cover-row"><strong>Paciente:</strong> ${(pac||'—').toUpperCase()}, ${idade||'—'}, ${raca?raca.toUpperCase():'—'}, ${sexo}, ${peso||'—'}</div>
@@ -750,9 +775,10 @@ body { font-family: 'DM Sans', sans-serif; background: #e8e6e0; color: #111; }
 </div>
 
 <div class="obrigado-page">
+  <img src="${logoUrl}" style="width:100px;filter:brightness(0);margin-bottom:28px;">
   <div class="obrigado-title">OBRIGADO</div>
-  <div class="obrigado-sub">MV. Caio Genova · Dentista Veterinário</div>
-  <img src="${logoUrl}" class="obrigado-logo">
+  <div class="obrigado-sub">MV. CAIO GENOVA · DENTISTA VETERINÁRIO</div>
+  <div class="obrigado-contact">WhatsApp (16) 98225-1690 · @caiogenovaprates</div>
 </div>
 
 </body></html>`);
