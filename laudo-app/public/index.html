@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)file:///C:/Users/User/Downloads/index_2.html -->
+<!-- saved from url=(0044)file:///C:/Users/User/Downloads/index_3.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -359,7 +359,17 @@ async function callAPI(prompt, images) {
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || 'Erro na API');
-  return data.text;
+  return cleanText(data.text);
+}
+
+function cleanText(text) {
+  if (!text) return '';
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '$1')  // remove **bold**
+    .replace(/\*([^*]+)\*/g, '$1')         // remove *italic*
+    .replace(/^\s*[\*\-]\s+/gm, '')      // remove bullet * or -
+    .replace(/###IMG\d+###/g, '')           // remove ###IMG### markers
+    .trim();
 }
 
 // RENDER PHOTO LIST (after AI analysis)
@@ -741,7 +751,7 @@ body { font-family: 'DM Sans', sans-serif; background: #e8e6e0; color: #111; }
 </style></head><body>
 
 <div class="cover">
-  <img src="${logoUrl}" class="cover-logo" style="filter: brightness(0);">
+  <img src="${logoUrl}" class="cover-logo">
   <div class="cover-tag">LAUDO</div>
   <div class="cover-title">PÓS-<br>CIRÚRGICO</div>
   <div class="cover-row"><strong>Paciente:</strong> ${(pac||'—').toUpperCase()}, ${idade||'—'}, ${raca?raca.toUpperCase():'—'}, ${sexo}, ${peso||'—'}</div>
@@ -775,7 +785,7 @@ body { font-family: 'DM Sans', sans-serif; background: #e8e6e0; color: #111; }
 </div>
 
 <div class="obrigado-page">
-  <img src="${logoUrl}" style="width:100px;filter:brightness(0);margin-bottom:28px;">
+  <img src="${logoUrl}" style="width:100px;margin-bottom:28px;">
   <div class="obrigado-title">OBRIGADO</div>
   <div class="obrigado-sub">MV. CAIO GENOVA · DENTISTA VETERINÁRIO</div>
   <div class="obrigado-contact">WhatsApp (16) 98225-1690 · @caiogenovaprates</div>
